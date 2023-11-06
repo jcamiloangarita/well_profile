@@ -31,7 +31,7 @@ def plot_wellpath(well, **kwargs):
     result = well1
 
     if data['add_well'] is not None:
-        wells = []
+        wells = [well1]
 
         if type(data['add_well']) is not list:
             data['add_well'] = [data['add_well']]
@@ -43,7 +43,7 @@ def plot_wellpath(well, **kwargs):
             wells.append(new_well)
             well_no += 1
 
-        all_wells = well1.append(wells)
+        all_wells = pd.concat(wells)
         result = all_wells
 
     if data['names'] is not None:
