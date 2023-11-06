@@ -7,6 +7,9 @@ class TestLoadTrajectory(TestCase):
 
     def test_load_from_excel(self):
         well = load(r'https://github.com/pro-well-plan/well_profile/raw/master/well_profile/tests/trajectory1.xlsx')
+        well2 = load(r'https://github.com/pro-well-plan/well_profile/raw/master/well_profile/tests/trajectory1.xlsx')
+
+        well.plot(add_well=[well2], names=['well1', 'well2'])
 
         run_assertions(self, well, 3790)
 
